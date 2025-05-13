@@ -68,7 +68,7 @@
 // bi-directional SDA pin and the library will try to read this via the MOSI line.
 // To use the SDA line for reading data from the TFT uncomment the following line:
 
-// #define TFT_SDA_READ      // This option is for ESP32 ONLY, tested with ST7789 and GC9A01 display only
+   #define TFT_SDA_READ      // This option is for ESP32 ONLY, tested with ST7789 and GC9A01 display only
 
 // For ST7735, ST7789 and ILI9341 ONLY, define the colour order IF the blue and red are swapped on your display
 // Try ONE option at a time to find the correct colour order for your display
@@ -129,7 +129,7 @@
 // driven with a PWM signal or turned OFF/ON then this must be handled by the user
 // sketch. e.g. with digitalWrite(TFT_BL, LOW);
 
-  #define TFT_BL   16            // LED back-light control pin
+  #define TFT_BL   22            // LED back-light control pin
   #define TFT_BACKLIGHT_ON HIGH  // Level to turn ON back-light (HIGH or LOW)
 
 
@@ -168,12 +168,12 @@
 
 // For NodeMCU - use pin numbers in the form PIN_Dx where Dx is the NodeMCU pin designation
 //#define TFT_MISO   10 // Automatically assigned with ESP8266 if not defined
-#define TFT_MOSI   19 // Automatically assigned with ESP8266 if not defined
+#define TFT_MOSI   23 // Automatically assigned with ESP8266 if not defined
 #define TFT_SCLK   18 // Automatically assigned with ESP8266 if not defined
 
-#define TFT_CS     17 // Chip select control pin D8
-#define TFT_DC     20 // Data Command control pin
-#define TFT_RST    21 // Reset pin (could connect to NodeMCU RST, see next line)
+#define TFT_CS     5 // Chip select control pin D8
+#define TFT_DC     17 // Data Command control pin
+#define TFT_RST    16 // Reset pin (could connect to NodeMCU RST, see next line)
 //#define TFT_RST  -1     // Set TFT_RST to -1 if the display RESET is connected to NodeMCU RST or 3.3V
 
 //#define TFT_BL 22 // LED back-light (only for ST7789 with backlight control pin)
@@ -339,7 +339,7 @@
 // controllers often work reliably for shorter periods, however if the period is too short
 // the display may not initialise or graphics will become corrupted.
 // PIO write cycle frequency = (CPU clock/(4 * RP2040_PIO_CLK_DIV))
-   #define RP2040_PIO_CLK_DIV 1 // 32ns write cycle at 125MHz CPU clock
+// #define RP2040_PIO_CLK_DIV 1 // 32ns write cycle at 125MHz CPU clock
 // #define RP2040_PIO_CLK_DIV 2 // 64ns write cycle at 125MHz CPU clock
 // #define RP2040_PIO_CLK_DIV 3 // 96ns write cycle at 125MHz CPU clock
 
@@ -359,13 +359,13 @@
 // #define SPI_FREQUENCY   5000000
 // #define SPI_FREQUENCY  10000000
 // #define SPI_FREQUENCY  20000000
-   #define SPI_FREQUENCY  27000000
+   #define SPI_FREQUENCY  40000000
 // #define SPI_FREQUENCY  40000000
 // #define SPI_FREQUENCY  55000000 // STM32 SPI1 only (SPI2 maximum is 27MHz)
 // #define SPI_FREQUENCY  80000000
 
 // Optional reduced SPI frequency for reading TFT
-// #define SPI_READ_FREQUENCY  20000000
+   #define SPI_READ_FREQUENCY  20000000
 
 // The XPT2046 requires a lower SPI clock rate of 2.5MHz so we define that here:
 // #define SPI_TOUCH_FREQUENCY  2500000

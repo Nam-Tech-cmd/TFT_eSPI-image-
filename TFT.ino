@@ -4211,8 +4211,9 @@ const int bitmapHeight = 280;
 void setup() {
   tft.init();   
   tft.fillScreen(TFT_BLACK);
+  tft.setSwapBytes(true);
 //tft.setRotation(2);
-//tft.setSwapBytes(true);
+
   tft.pushImage(0, 0, bitmapWidth, bitmapHeight, mybitmap);
 }
 
